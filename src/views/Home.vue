@@ -1,10 +1,9 @@
 <template>
-  <h1>Hello Duniya</h1>
+    <p></p>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
+  name: "Home",
 }
 </script>
