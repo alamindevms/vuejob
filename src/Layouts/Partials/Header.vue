@@ -1,6 +1,8 @@
 <template>
   <div class="relative z-10 flex-shrink-0 flex h-16 bg-white shadow">
-    <button class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden" @click="sidebarOpen = true">
+    <button class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
+            @click="$emit('open-sidebar')"
+    >
       <span class="sr-only">Open sidebar</span>
       <MenuAlt2Icon class="h-6 w-6" aria-hidden="true" />
     </button>
@@ -44,7 +46,6 @@
 </template>
 
 <script>
-import { ref } from 'vue'
 import {
   Menu,
   MenuButton,
@@ -88,12 +89,9 @@ export default {
     SearchIcon,
   },
   setup() {
-    const sidebarOpen = ref(false)
-
     return {
       navigation,
       userNavigation,
-      sidebarOpen,
     }
   },
 }
