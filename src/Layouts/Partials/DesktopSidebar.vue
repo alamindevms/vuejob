@@ -9,10 +9,21 @@
         </div>
         <div class="mt-5 flex-grow flex flex-col">
           <nav class="flex-1 px-2 bg-white space-y-1">
-            <a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900', 'group flex items-center px-2 py-2 text-sm font-medium rounded-md']">
-              <component :is="item.icon" :class="[item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500', 'mr-3 flex-shrink-0 h-6 w-6']" aria-hidden="true" />
-              {{ item.name }}
-            </a>
+            <ul class="list-none">
+              <router-link
+                  v-slot="{ href, navigate, isActive }"
+                  custom
+                  v-for="item in navigation" :key="item.name" :to="item.href"
+              >
+                <li
+                    :class="[isActive && 'bg-gray-100 text-gray-900']"
+                    class="flex items-center group px-2 rounded-md hover:bg-gray-50 hover:text-gray-900 "
+                >
+                  <component :is="item.icon" :class="[isActive && 'text-gray-500' , 'text-gray-400 group-hover:text-gray-500 mr-3 flex-shrink-0 h-6 w-6']" aria-hidden="true" />
+                  <a :href="href" @click="navigate" class="text-gray-600 text-sm font-medium w-full py-4">{{ item.name }}</a>
+                </li>
+              </router-link>
+            </ul>
           </nav>
         </div>
       </div>
@@ -27,6 +38,6 @@ export default {
     navigation:{
       type: Array
     }
-  }
+  },
 }
 </script>

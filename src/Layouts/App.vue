@@ -12,9 +12,6 @@
       <main class="flex-1 relative overflow-y-auto focus:outline-none">
         <div class="py-6">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-            <h1 class="text-2xl font-semibold text-gray-900">Dashboard</h1>
-          </div>
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             <!-- Replace with your content -->
             <div class="py-4">
               <router-view></router-view>
@@ -43,12 +40,12 @@ import {
 } from '@heroicons/vue/outline'
 
 const navigation = [
-  { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
-  { name: 'Team', href: '#', icon: UsersIcon, current: false },
-  { name: 'Projects', href: '#', icon: FolderIcon, current: false },
-  { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
-  { name: 'Documents', href: '#', icon: InboxIcon, current: false },
-  { name: 'Reports', href: '#', icon: ChartBarIcon, current: false },
+  { name: 'Dashboard', href: '/', icon: HomeIcon, current: true },
+  { name: 'Team', href: '/team', icon: UsersIcon, current: false },
+  { name: 'Projects', href: '/projects', icon: FolderIcon, current: false },
+  { name: 'Calendar', href: '/calendar', icon: CalendarIcon, current: false },
+  { name: 'Documents', href: '/documents', icon: InboxIcon, current: false },
+  { name: 'Reports', href: '/reports', icon: ChartBarIcon, current: false },
 ]
 
 export default {
